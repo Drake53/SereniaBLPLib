@@ -18,8 +18,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.PixelFormats;
 using System;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -229,15 +227,6 @@ namespace SereniaBLPLib
             bmp.UnlockBits(bmpdata);
 
             return bmp;
-        }
-
-        public Image<Rgba32> GetImage(int mipmapLevel)
-        {
-            byte[] pic = GetPixels(mipmapLevel, out int w, out int h, colorEncoding == 3 ? true : false);
-
-            var image = SixLabors.ImageSharp.Image.LoadPixelData<Rgba32>(pic, w, h);
-
-            return image;
         }
 
         /// <summary>
